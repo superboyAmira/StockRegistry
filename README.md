@@ -10,3 +10,5 @@ Course work for the 4th semester. Data storage technology.
 * Docker + docker-compose
 * PostgreSQL
 
+![alt text](image.png)
+
