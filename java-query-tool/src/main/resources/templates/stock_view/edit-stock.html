@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Stock</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Edit Stock</h1>
+<form th:action="@{/stocks/update/{id}(id=${stock.id})}" th:object="${stock}" method="post">
+    <label>Quote: <input type="text" th:field="*{quote}" required/></label><br/>
+    <label>Form: <input type="text" th:field="*{form}" required/></label><br/>
+    <label>Nominal value: <input type="text" th:field="*{nominalValue}"/></label><br/>
+    <label>Quote change: <input type="text" th:field="*{stockQuoteChange}"/></label><br/>
+    <button type="submit">Update</button>
+</form>
+<a th:href="@{/stocks/}">Back to Stocks</a>
+</body>
+</html>

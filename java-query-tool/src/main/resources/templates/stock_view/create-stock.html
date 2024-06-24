@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Stock</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Create Stock</h1>
+<form th:action="@{/stocks/}" th:object="${stock}" method="post">
+    <label>Quote: <input type="text" th:field="*{quote}" required/></label><br/>
+    <label>Form: <input type="text" th:field="*{form}" required/></label><br/>
+    <label>Nominal Value: <input type="text" th:field="*{nominalValue}"/></label><br/>
+    <label>Issuer Account ID: <input type="text" th:field="*{issuerAccount.id}" required/> <a th:href="@{/issuer_accounts/}">See all Accounts</a> <a th:href="@{/issuers/}">See all Issuers</a></label><br/>
+    <label>Registry ID: <input type="text" th:field="*{registry.id}" required/> <a th:href="@{/registries/}">See all Registry`s</a></label><br/>
+    <label>Subject ID: <input type="text" th:field="*{subject.id}" required/> <a th:href="@{/subjects/}">See all Subjects</a></label><br/>
+    <button type="submit" th:color="green">Ok</button>
+</form>
+<a th:href="@{/stocks/}">Back to Stocks</a>
+</body>
+</html>

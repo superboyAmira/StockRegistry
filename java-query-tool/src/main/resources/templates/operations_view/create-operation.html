@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Operation</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Create Operation</h1>
+<form th:action="@{/operations/}" th:object="${operation}" method="post">
+    <label>Seller ID: <input type="text" th:field="*{sellerSubject}" required/><a th:href="@{/subjects/}">See all Subjects</a></label><br/>
+    <label>Buyer ID: <input type="text" th:field="*{buyerSubject}" required/><a th:href="@{/subjects/}">See all Subjects</a></label><br/>
+    <label>Registry ID: <input type="text" th:field="*{registry}" required/><a th:href="@{/registries/}">See all Registries</a></label><br/>
+    <label>Stock ID: <input type="text" th:field="*{stock}" required/><a th:href="@{/stocks/}">See all Stocks</a></label><br/>
+    <button type="submit">Ok</button>
+</form>
+<a th:href="@{/operations/}">Back to Operations</a>
+</body>
+</html>

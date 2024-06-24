@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Issuers</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Issuers</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Company Name</th>
+        <th>Citizenship</th>
+        <th>Authorized Capital</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="issuer : ${issuers}">
+        <td th:text="${issuer.id}"></td>
+        <td th:text="${issuer.company}"></td>
+        <td th:text="${issuer.citizenship}"></td>
+        <td th:text="${issuer.authorizedCapital}"></td>
+        <td>
+            <a th:href="@{/issuers/edit/{id}(id=${issuer.id})}">Edit</a>
+            <a th:href="@{/issuers/delete/{id}(id=${issuer.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div><a th:href="@{/}">Home page</a></div>
+<div><a th:href="@{/issuers/create}">Create New Issuer</a></div>
+</body>
+</html>

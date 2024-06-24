@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>2 table query</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>2 table query</h1>
+<h3>Запрос выводит все ценные бумаги которыми владеет юридическое/физическое лицо</h3>
+<form method="get" th:action="@{/query/2table}">
+    <label for="type">Тип субъекта:</label>
+    <input type="text" id="type" name="type" th:value="${defaultType}" required>
+    <button type="submit">Изменить</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Owner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stock : ${stocks}">
+        <td th:text="${stock.id}"></td>
+        <td th:text="${stock.subject.contact_info}"></td>
+    </tr>
+    </tbody>
+</table>
+<div><a th:href="@{/stocks/}">Для проверки Stock</a></div>
+<div><a th:href="@{/subjects/}">Для проверки Subject</a></div>
+
+<h3>Запрос выводит все операции по по ценным бумагам с выбранным типом</h3>
+<form method="get" th:action="@{/query/2table}">
+    <label for="form">Форма:</label>
+    <input type="text" id="form" name="form" th:value="${defaultForm}" required>
+    <button type="submit">Изменить</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Stock ID</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="op : ${operations}">
+        <td th:text="${op.id}"></td>
+        <td th:text="${op.stock.id}"></td>
+        <td th:text="${op.operationDate.toGMTString()}"></td>
+    </tr>
+    </tbody>
+</table>
+<div><a th:href="@{/stocks/}">Для проверки Stock</a></div>
+<div><a th:href="@{/operations/}">Для проверки Operations</a></div>
+<div><a th:href="@{/}">Home page</a></div>
+</body>
+</html>

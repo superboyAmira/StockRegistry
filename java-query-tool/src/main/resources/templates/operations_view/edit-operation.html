@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Operation</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Edit Operation</h1>
+<form th:action="@{/operations/update/{id}(id=${operation.id})}" th:object="${operation}" method="post">
+    <label>Seller ID: <input type="text" th:field="*{sellerSubject.id}" required/><a th:href="@{/subjects/}">See all Subjects</a></label><br/>
+    <label>Buyer ID: <input type="text" th:field="*{buyerSubject.id}" required/><a th:href="@{/subjects/}">See all Subjects</a></label><br/>
+    <label>Registry ID: <input type="text" th:field="*{registry.id}" required/><a th:href="@{/registries/}">See all Registries</a></label><br/>
+    <label>Stock ID: <input type="text" th:field="*{stock.id}" required/><a th:href="@{/stocks/}">See all Stocks</a></label><br/>
+    <label>Operation Date: <input type="text" th:field="*{operationDate}" required/></label><br/>
+    <button type="submit">Update</button>
+</form>
+<a th:href="@{/operations/}">Back to Operations</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stocks</title>
+    <link rel="stylesheet" th:href="@{../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Issuer Accounts</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Issuer ID</th>
+        <th>Currency</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="acc : ${issuer_accounts}">
+        <td th:text="${acc.id}"></td>
+        <td th:text="${acc.issuer.id}"></td>
+        <td thregistries:text="${acc.currency}"></td>
+        <td>
+            <a th:href="@{/issuer_accounts/edit/{id}(id=${acc.id})}">Edit</a>
+            <a th:href="@{/issuer_accounts/delete/{id}(id=${acc.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--Search for column-->
+<div><a th:href="@{/}">Home page</a></div>
+<div><a th:href="@{/issuer_accounts/create}">Create New Issuer Account</a></div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCT/home/superboy/java-query-tool/src/main/resources/templates/issuer_viewYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Issuer</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Create Issuer</h1>
+<form th:action="@{/issuers/}" th:object="${issuer}" method="post">
+    <label>Company name: <input type="text" th:field="*{company}"/></label><br/>
+    <label>Citizenship: <input type="text" th:field="*{citizenship}"/></label><br/>
+    <label>Authorized Capital: <input type="text" th:field="*{authorizedCapital}"/></label><br/>
+    <button type="submit" th:color="green">Ok</button>
+</form>
+<a th:href="@{/issuers/}">Back to Issuers table</a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stocks</title>
+    <link rel="stylesheet" th:href="@{../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Stocks</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Quote</th>
+        <th>Form</th>
+        <th>Nominal Value</th>
+        <th>Change</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stock : ${stocks}">
+        <td th:text="${stock.id}"></td>
+        <td th:text="${stock.quote}"></td>
+        <td th:text="${stock.form}"></td>
+        <td th:text="${stock.nominalValue}"></td>
+        <td th:text="${stock.stockQuoteChange}"></td>
+        <td>
+            <a th:href="@{/stocks/{id}(id=${stock.id})}">View</a>
+            <a th:href="@{/stocks/edit/{id}(id=${stock.id})}">Edit</a>
+            <a th:href="@{/stocks/delete/{id}(id=${stock.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--Search for column-->
+<div><a th:href="@{/}">Home page</a></div>
+<div><a th:href="@{/stocks/create}">Create New Stock</a></div>
+</body>
+</html>

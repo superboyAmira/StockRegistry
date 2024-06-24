@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>3 table query</title>
+  <link rel="stylesheet" th:href="@{../../static/style.css}">
+  <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>3 table query</h1>
+
+<h3>Получение всех операций вместе с информацией о покупателе и ценной бумаге, где тип покупателя "Corporate"/"Individual"</h3>
+<form method="get" th:action="@{/query/3table}">
+  <label for="subject_type">Тип субъекта:</label>
+  <input type="text" id="subject_type" name="subject_type" th:value="${defaultSubjectType}" required>
+  <button type="submit">Изменить</button>
+</form>
+<table>
+  <thead>
+  <tr>
+    <th>Operation ID</th>
+    <th>Operation Date</th>
+    <th>Buyer Contact`s</th>
+    <th>Stock Form</th>
+    <th>Stock Quote</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="element : ${query1}">
+    <td th:text="${element[0]}"></td>
+    <td th:text="${element[1].toGMTString()}"></td>
+    <td th:text="${element[2]}"></td>
+    <td th:text="${element[3]}"></td>
+    <td th:text="${element[4]}"></td>
+  </tr>
+  </tbody>
+</table>
+<div><a th:href="@{/stocks/}">Для проверки Stock</a></div>
+<div><a th:href="@{/subjects/}">Для проверки Subject</a></div>
+<div><a th:href="@{/operations/}">Для проверки Operations</a></div>
+
+<h3>Получение всех выплат вместе с информацией об эмитенте и ценой бумаге, для бумаг, у которых номинальная стоимость больше указанного значения.</h3>
+<form method="get" th:action="@{/query/3table}">
+  <label for="nominalVal">Номинальная стоимость:</label>
+  <input type="number" id="nominalVal" name="nominalVal" th:value="${defaultNominalVal}">
+  <button type="submit">Изменить</button>
+</form>
+<table>
+  <thead>
+  <tr>
+    <th>Payment ID</th>
+    <th>Payment Amount</th>
+    <th>Issuer Company</th>
+    <th>Stock Form</th>
+    <th>Stock Nominal value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="element : ${query2}">
+    <td th:text="${element[0]}"></td>
+    <td th:text="${element[1]}"></td>
+    <td th:text="${element[2]}"></td>
+    <td th:text="${element[3]}"></td>
+    <td th:text="${element[4]}"></td>
+  </tr>
+  </tbody>
+</table>
+<div><a th:href="@{/stocks/}">Для проверки Stock</a></div>
+<div><a th:href="@{/payments/}">Для проверки Payments</a></div>
+<div><a th:href="@{/issuers/}">Для проверки Issuers</a></div>
+<div><a th:href="@{/}">Home page</a></div>
+</body>
+</html>

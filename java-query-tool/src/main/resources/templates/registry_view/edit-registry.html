@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Registry</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Edit Registry</h1>
+<form th:action="@{/registries/update/{id}(id=${registry.id})}" th:object="${registry}" method="post">
+    <label>Name of Registry: <input type="text" th:field="*{name}" required/></label><br/>
+    <label>Owner: <input type="text" th:field="*{owner}"/></label><br/>
+    <button type="submit">Update</button>
+</form>
+<a th:href="@{/registries/}">Back to Registries</a>
+</body>
+</html>

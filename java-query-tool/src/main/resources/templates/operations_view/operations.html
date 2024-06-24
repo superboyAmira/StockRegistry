@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations</title>
+    <link rel="stylesheet" th:href="@{../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Operations</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Seller ID</th>
+        <th>Buyer ID</th>
+        <th>Stock ID</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="op : ${operations}">
+        <td th:text="${op.id}"></td>
+        <td th:text="${op.sellerSubject.id}"></td>
+        <td th:text="${op.buyerSubject.id}"></td>
+        <td th:text="${op.stock.id}"></td>
+        <td>
+            <a th:href="@{/operations/{id}(id=${op.id})}">View</a>
+            <a th:href="@{/operations/edit/{id}(id=${op.id})}">Edit</a>
+            <a th:href="@{/operations/delete/{id}(id=${op.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!--Search for column-->
+<div><a th:href="@{/}">Home page</a></div>
+<div><a th:href="@{/operations/create}">Create New Operation</a></div>
+</body>
+</html>

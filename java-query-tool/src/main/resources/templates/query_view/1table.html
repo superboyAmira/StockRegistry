@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>1 table query</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>1 table query</h1>
+<h3>Вывод колонки forms таблицы Stock</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Forms</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="form : ${forms}">
+        <td th:text="${form}"></td>
+    </tr>
+    </tbody>
+</table>
+<div><a th:href="@{/}">Home page</a></div>
+</body>
+</html>

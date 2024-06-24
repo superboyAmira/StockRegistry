@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payments</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Payments</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Subject ID</th>
+        <th>Issuer ID</th>
+        <th>Stock ID</th>
+        <th>Amount</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="payment : ${payments}">
+        <td th:text="${payment.id}"></td>
+        <td th:text="${payment.subject.id}"></td>
+        <td th:text="${payment.issuer.id}"></td>
+        <td th:text="${payment.stock.id}"></td>
+        <td th:text="${payment.amount}"></td>
+        <td>
+            <a th:href="@{/payments/edit/{id}(id=${payment.id})}">Edit</a>
+            <a th:href="@{/payments/delete/{id}(id=${payment.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div><a th:href="@{/}">Home page</a></div>
+<div><a th:href="@{/payments/create}">Create New Payment</a></div>
+</body>
+</html>

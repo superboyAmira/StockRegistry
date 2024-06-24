@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Account</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Edit Account</h1>
+<form th:action="@{/issuer_accounts/update/{id}(id=${issuer_account.id})}" th:object="${issuer_account}" method="post">
+    <label>Currency: <input type="text" th:field="*{currency}" required/></label><br/>
+    <button type="submit">Update</button>
+</form>
+<a th:href="@{/issuer_accounts/}">Back to Issuer Accounts</a>
+</body>
+</html>

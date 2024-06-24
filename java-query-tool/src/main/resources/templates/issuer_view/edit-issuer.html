@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Issuer</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Edit Issuer</h1>
+<form th:action="@{/issuers/update/{id}(id=${issuer.id})}" th:object="${issuer}" method="post">
+    <label>Company: <input type="text" th:field="*{company}" required/></label><br/>
+    <label>Citizenship: <input type="text" th:field="*{citizenship}"/></label><br/>
+    <label>Authorized Capital: <input type="text" th:field="*{authorizedCapital}"/></label><br/>
+    <button type="submit">Update</button>
+</form>
+<a th:href="@{/issuers/}">Back to Issuers</a>
+</body>
+</html>

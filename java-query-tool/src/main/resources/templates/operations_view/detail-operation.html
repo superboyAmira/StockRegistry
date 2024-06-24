@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Operation Details</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/mao_zedong_avatar_icon_263215.ico}">
+</head>
+<body>
+<h1>Operation Details</h1>
+<table>
+    <tr>
+        <td><strong>ID:</strong></td>
+        <td><span th:text="${operation.id}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Seller Contact's:</strong></td>
+        <td><span th:text="${operation.sellerSubject.contact_info}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Buyer Contact's:</strong></td>
+        <td><span th:text="${operation.buyerSubject.contact_info}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Registry ID:</strong></td>
+        <td><span th:text="${operation.registry.id}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Registry Name:</strong></td>
+        <td><span th:text="${operation.registry.getName()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Operations Date:</strong></td>
+        <td><span th:text="${operation.operationDate}"></span></td>
+    </tr>
+</table>
+</body>
+<footer><a th:href="@{/operations/}">Back to Operations</a></footer>
+</html>

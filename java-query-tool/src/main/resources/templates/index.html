@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ЗАХАРЕНКО УВП-211</title>
+    <link rel="stylesheet" th:href="@{../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../static/pope_john_paul_ii_avatar_icon_263204.ico}">
+</head>
+
+<body>
+<h1>Курсовая работа 4 семестр Захаренко Никита УВП-211</h1>
+<h3>Technology stack</h3>
+<ul>
+    <li>Java 17</li>
+    <li>Spring Boot</li>
+    <li>Hibernate</li>
+    <li>Timeleaf</li>
+    <li>PostgreSQL</li>
+    <li>Docker</li>
+</ul>
+<h3>All table`s from database:</h3>
+<ul>
+    <li><a th:href="@{/stocks/}">Stocks</a></li>
+    <li><a th:href="@{/issuer_accounts/}">Accounts</a></li>
+    <li><a th:href="@{/issuers/}">Issuers</a></li>
+    <li><a th:href="@{/operations/}">Operations</a></li>
+    <li><a th:href="@{/registries/}">Registry`s</a></li>
+    <li><a th:href="@{/subjects/}">Subjects</a></li>
+    <li><a th:href="@{/payments/}">Payments</a></li>
+
+</ul>
+
+<h3>Query`s for demonstration:</h3>
+<ul>
+    <li><a th:href="@{/query/1table}">1 table query</a></li>
+    <li><a th:href="@{/query/2table}">2 table query</a></li>
+    <li><a th:href="@{/query/3table}">3 table query</a></li>
+</ul>
+</body>
+
+<footer><h5><a href="https://github.com/superboyAmira">Project GitHub page</a></h5></footer>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stock Details</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/mao_zedong_avatar_icon_263215.ico}">
+</head>
+<body>
+<h1>Stock Details</h1>
+<table>
+    <tr>
+        <td><strong>ID:</strong></td>
+        <td><span th:text="${stock.id}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Issuer account ID:</strong></td>
+        <td><span th:text="${stock.issuerAccount.getId()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Issuer company:</strong></td>
+        <td><span th:text="${stock.issuerAccount.getIssuer().getCompany()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Subject ID:</strong></td>
+        <td><span th:text="${stock.subject.getContact_info()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Registry ID:</strong></td>
+        <td><span th:text="${stock.registry.getName()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Quote:</strong></td>
+        <td><span th:text="${stock.quote}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Form:</strong></td>
+        <td><span th:text="${stock.form}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Nominal Value:</strong></td>
+        <td><span th:text="${stock.nominalValue}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Change:</strong></td>
+        <td><span th:text="${stock.stockQuoteChange}"></span></td>
+    </tr>
+</table>
+</body>
+<footer><a th:href="@{/stocks/}">Back to Stocks</a></footer>
+</html>

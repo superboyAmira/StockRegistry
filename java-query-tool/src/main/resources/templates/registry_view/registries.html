@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registry</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Registry</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Owner</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="registry : ${regisrtries}">
+        <td th:text="${registry.id}"></td>
+        <td th:text="${registry.name}"></td>
+        <td th:text="${registry.owner}"></td>
+        <td>
+            <a th:href="@{/registries/edit/{id}(id=${registry.id})}">Edit</a>
+            <a th:href="@{/registries/delete/{id}(id=${registry.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div><a th:href="@{/}">Home page</a></div>
+<div><a th:href="@{/registries/create}">Create New Registry</a></div>
+</body>
+</html>

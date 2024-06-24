@@ -1,0 +1,17 @@
+<!DOCT/home/superboy/java-query-tool/src/main/resources/templates/issuer_viewYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Registry</title>
+    <link rel="stylesheet" th:href="@{../../static/style.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{../../static/cristiano_ronaldo_avatar_icon_263214.ico}">
+</head>
+<body>
+<h1>Create Registry</h1>
+<form th:action="@{/registries/}" th:object="${registry}" method="post">
+    <label>Name: <input type="text" th:field="*{name}"/></label><br/>
+    <label>Owner: <input type="text" th:field="*{owner}"/></label><br/>
+    <button type="submit" th:color="green">Ok</button>
+</form>
+<a th:href="@{/issuers/}">Back to Registries table</a>
+</body>
+</html>
